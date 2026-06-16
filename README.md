@@ -61,13 +61,19 @@ The system operates on a ReAct (Reasoning and Acting) agent architecture.
 This application is containerized using Docker and deployed on Hugging Face Spaces. The deployment process involves uploading the source code (app.py, agent.py, requirements.txt, and the Dockerfile) to the Hugging Face repository, which automatically triggers a cloud build. Environment variables are managed securely within the Space settings.
 
 ## Evaluation
-The retrieval and generation pipelines were quantitatively evaluated using the Ragas framework locally. The evaluation focused on two primary metrics:
-* **Faithfulness:** Verifying that the LLM's answers are factually derived from the retrieved context.
-* **Answer Relevancy:** Measuring how directly the generated answer addresses the user's initial prompt.
+The retrieval and generation pipelines were quantitatively evaluated using the RAGAS framework on a curated set of N=25 domain-specific questions derived from the Valve Employee Handbook corpus. Gemini 2.5 Flash was used as the judge LLM and all-MiniLM-L6-v2 as the embedding model for evaluation.
+
+The evaluation focused on two primary metrics:
+
+* **Faithfulness (0.61):** Measures whether the LLM's answers are factually grounded in the retrieved context, ensuring the agent does not hallucinate information beyond what the knowledge base contains.
+* 
+* **Answer Relevancy (0.62):** Measures how directly and completely the generated answer addresses the user's original question, penalising vague or off-topic responses.
+* 
+These scores reflect realistic performance on a non-trivial open-domain corpus. A faithfulness score below 1.0 indicates edge cases where the model occasionally inferred beyond the retrieved context, which were logged as known limitations for future prompt refinement.
 
 <div align="center">
-  
-<img width="537" height="449" alt="Ragas Evaluation Metrics" src="https://github.com/user-attachments/assets/910fe82b-c0a4-412d-9181-27671c15ad68" />
+
+<img width="537" height="449" alt="Ragas Evaluation Metrics" src="https://github.com/user-attachments/assets/f34c4e2c-d304-49d6-ac31-65342ca0ee13" />
 
 </div>
    
