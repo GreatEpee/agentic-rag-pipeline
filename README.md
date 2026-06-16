@@ -1,4 +1,4 @@
-# hybrid-rag-pipeline
+# Agentic-rag-pipeline
 **[Live Interactive Demo on Hugging Face](https://huggingface.co/spaces/ugabooga/agentic-rag-pipeline)**
 
 ## Overview
