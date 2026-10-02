@@ -1,3 +1,5 @@
+#currently under maintenance as the LlaMA 3.1 8b was decommissioned. Will be switching with gpt OSS 20b soon, thank you
+
 # Agentic-rag-pipeline
 **[Live Interactive Demo on Hugging Face](https://huggingface.co/spaces/ugabooga/agentic-rag-pipeline)**
 
