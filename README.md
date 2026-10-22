@@ -63,23 +63,22 @@ This application is containerized using Docker and deployed on Hugging Face Spac
 ## Evaluation
 The retrieval and generation pipelines were quantitatively evaluated using the RAGAS framework on a curated set of N=25 domain-specific questions derived from the Valve Employee Handbook corpus. Gemini 2.5 Flash was used as the judge LLM and all-MiniLM-L6-v2 as the embedding model for evaluation.
 
-The evaluation focused on two primary metrics:
+**The evaluation focused on two primary metrics:**
 
-<<<<<<< HEAD
+Eval result from Llama 3.1-8b instant (decommissioned):
 * **Faithfulness (0.61):** Measures whether the LLM's answers are factually grounded in the retrieved context, ensuring the agent does not hallucinate information beyond what the knowledge base contains.
-* 
 * **Answer Relevancy (0.62):** Measures how directly and completely the generated answer addresses the user's original question, penalising vague or off-topic responses.
-=======
+
+Eval result from GPT OSS 20b (current/active):
 * **Faithfulness (0.58):** Measures whether the LLM's answers are factually grounded in the retrieved context, ensuring the agent does not hallucinate information beyond what the knowledge base contains.
-* 
 * **Answer Relevancy (0.65):** Measures how directly and completely the generated answer addresses the user's original question, penalising vague or off-topic responses.
->>>>>>> 929623c (feat: migrate LLM provider to Groq openai/gpt-oss-20b and update evaluation benchmarks)
-* 
+
 These scores reflect realistic performance on a non-trivial open-domain corpus. A faithfulness score below 1.0 indicates edge cases where the model occasionally inferred beyond the retrieved context, which were logged as known limitations for future prompt refinement.
 
 <div align="center">
 
-<img width="537" height="449" alt="Ragas Evaluation Metrics" src="https://github.com/user-attachments/assets/f34c4e2c-d304-49d6-ac31-65342ca0ee13" />
+<img width="539" height="452" alt="evaluation_chart" src="https://github.com/user-attachments/assets/35f27de0-f10c-4fa0-912e-66f23421aee4" />
+
 
 </div>
    
