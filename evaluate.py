@@ -140,8 +140,15 @@ print(f"\nEvaluation Results:\n{results}")
 print("\nGenerating visual chart...")
 
 #for handling nan values
-f_score = results.get("faithfulness", 0.0)
-ar_score = results.get("answer_relevancy", 0.0)
+try:
+    f_score = float(results["faithfulness"])
+except Exception:
+    f_score = 0.0
+
+try:
+    ar_score = float(results["answer_relevancy"])
+except Exception:
+    ar_score = 0.0
 
 f_score = 0.0 if math.isnan(f_score) else float(f_score)
 ar_score = 0.0 if math.isnan(ar_score) else float(ar_score)

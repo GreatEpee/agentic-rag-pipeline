@@ -1,5 +1,3 @@
-#currently under maintenance as the LlaMA 3.1 8b was decommissioned. Will be switching with gpt OSS 20b soon, thank you
-
 # Agentic-rag-pipeline
 **[Live Interactive Demo on Hugging Face](https://huggingface.co/spaces/ugabooga/agentic-rag-pipeline)**
 
@@ -23,7 +21,7 @@ The system operates on a ReAct (Reasoning and Acting) agent architecture.
 * **Memory:** The Streamlit frontend captures the session state and passes the complete conversation history to the LangChain message objects, enabling multi-turn contextual awareness.
 
 ## Technical Stack
-* **LLM:** LLaMA 3.1 8B Instant (hosted via Groq for high-speed inference)
+* **LLM:** OpenAI GPT-OSS 20B (`openai/gpt-oss-20b`, hosted via Groq for high-speed inference)
 * **Orchestration:** LangChain and LangGraph
 * **Vector Database:** Pinecone
 * **Embedding Model:** HuggingFace all-MiniLM-L6-v2
@@ -67,9 +65,15 @@ The retrieval and generation pipelines were quantitatively evaluated using the R
 
 The evaluation focused on two primary metrics:
 
+<<<<<<< HEAD
 * **Faithfulness (0.61):** Measures whether the LLM's answers are factually grounded in the retrieved context, ensuring the agent does not hallucinate information beyond what the knowledge base contains.
 * 
 * **Answer Relevancy (0.62):** Measures how directly and completely the generated answer addresses the user's original question, penalising vague or off-topic responses.
+=======
+* **Faithfulness (0.58):** Measures whether the LLM's answers are factually grounded in the retrieved context, ensuring the agent does not hallucinate information beyond what the knowledge base contains.
+* 
+* **Answer Relevancy (0.65):** Measures how directly and completely the generated answer addresses the user's original question, penalising vague or off-topic responses.
+>>>>>>> 929623c (feat: migrate LLM provider to Groq openai/gpt-oss-20b and update evaluation benchmarks)
 * 
 These scores reflect realistic performance on a non-trivial open-domain corpus. A faithfulness score below 1.0 indicates edge cases where the model occasionally inferred beyond the retrieved context, which were logged as known limitations for future prompt refinement.
 

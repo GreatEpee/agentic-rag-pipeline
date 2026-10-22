@@ -25,8 +25,7 @@ web_search = TavilySearchResults(
 )
 
 tools = [search_handbook, web_search]
-llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
+llm = ChatGroq(model="openai/gpt-oss-20b", temperature=0)
 agent = create_react_agent(llm, tools)
 
-# Llama-3.1-8b is preferred here over smaller local models for reliable native tool-calling without XML parsing errors.
-#previously i tried with llama-3.3-70b-versatile
+# openai/gpt-oss-20b provides fast inference and reliable native tool-calling on Groq.
